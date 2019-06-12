@@ -2,6 +2,6 @@
 
 node {
     stage("All the world") {
-        sh "echo hello"
+        sh "make"
     }
 }

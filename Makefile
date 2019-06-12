@@ -63,9 +63,9 @@ k8s: validate
 		-var cni_version=$(CNI_VERSION) \
 		-var cni_plugin_version=$(CNI_PLUGIN_VERSION) \
 		-var docker_version=$(DOCKER_VERSION) \
+		-var ami_regions=$(PACKER_AMI_COPY_REGIONS) \
+		-var ami_users=$(PACKER_ALLOW_AMI_OTHER_AWS_ACCOUNTS) \
 		-color=false \
-		-ami_regions=$(PACKER_AMI_COPY_REGIONS) \
-		-ami_users=$(PACKER_ALLOW_AMI_OTHER_AWS_ACCOUNTS) \
 		eks-worker-al2.json
 
 .PHONY: 1.10

@@ -1,7 +1,6 @@
 #!groovy
 
 node {
-    stage("All the world") {
-        sh "make"
-    }
+    env.SKIP_UNIT_TESTS=1
+    StandardBuild()
 }

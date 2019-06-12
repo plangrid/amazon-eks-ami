@@ -18,6 +18,7 @@ endif
 DATE ?= $(shell date +%Y-%m-%d)
 
 AWS_DEFAULT_REGION ?= us-west-2
+PACKER_AMI_COPY_REGIONS ?= us-east-1
 
 T_RED := \e[0;31m
 T_GREEN := \e[0;32m
@@ -62,6 +63,7 @@ k8s: validate
 		-var cni_plugin_version=$(CNI_PLUGIN_VERSION) \
 		-var docker_version=$(DOCKER_VERSION) \
 		-color=false \
+		-ami_regions=$(PACKER_AMI_COPY_REGIONS) \
 		eks-worker-al2.json
 
 .PHONY: 1.10

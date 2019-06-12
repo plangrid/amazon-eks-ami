@@ -2,7 +2,7 @@
   "variables": {
     "aws_region": "{{user `aws_region`}}",
     "ami_name": "amazon-eks-node-{{timestamp}}",
-    "binary_bucket_region": "{{user `aws_region`}}",
+    "binary_bucket_region": "us-west-2",
     "creator": "{{env `USER`}}",
     "source_ami_owners": "137112412989",
     "source_ami_filter_name": "amzn2-ami-minimal-hvm-*",
@@ -93,7 +93,7 @@
         "KUBERNETES_VERSION={{user `kubernetes_version`}}",
         "KUBERNETES_BUILD_DATE={{user `kubernetes_build_date`}}",
         "BINARY_BUCKET_NAME={{user `binary_bucket_name`}}",
-        "BINARY_BUCKET_REGION={{user `binary_bucket_region`}}",
+        "BINARY_BUCKET_REGION=us-west-2",
         "DOCKER_VERSION={{user `docker_version`}}",
         "CNI_VERSION={{user `cni_version`}}",
         "CNI_PLUGIN_VERSION={{user `cni_plugin_version`}}",

@@ -13,5 +13,8 @@ RUN export PACKER_ZIPFILE=packer_${PACKER_VERSION}_linux_amd64.zip \
 
 COPY . ./
 
+ENV AWS_REGION=us-east-1 \
+    AWS_DEFAULT_REGION=us-east-1
+
 RUN pip3 install awscli \
-    && make
+    &&  make

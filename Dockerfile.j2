@@ -11,5 +11,6 @@ RUN export PACKER_ZIPFILE=packer_${PACKER_VERSION}_linux_amd64.zip \
     && install -o root -g root -m 0755 packer /usr/local/bin \
     && rm ${PACKER_ZIPFILE} packer
 
-RUN pip3 install awscli \
-    && aws sts get-caller-identity
+COPY . ./
+
+RUN make

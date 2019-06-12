@@ -25,7 +25,7 @@ T_YELLOW := \e[0;33m
 T_RESET := \e[0m
 
 .PHONY: all
-all: 1.10 1.11 1.12
+all: 1.12
 
 .PHONY: validate
 validate:
@@ -60,6 +60,7 @@ k8s: validate
 		-var cni_version=$(CNI_VERSION) \
 		-var cni_plugin_version=$(CNI_PLUGIN_VERSION) \
 		-var docker_version=$(DOCKER_VERSION) \
+		-color=false \
 		eks-worker-al2.json
 
 .PHONY: 1.10

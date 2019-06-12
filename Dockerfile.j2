@@ -1,7 +1,9 @@
 FROM {{ PLANGRID_DOCKER_REPO }}/pg-docker:master
 
 ENV PACKER_VERSION=1.4.1 \
-    PACKER_ZIPFILE_SHA256=b713ea79a6fb131e27d65ec3f2227f36932540e71820288c3c5ad770b565ecd7
+    PACKER_ZIPFILE_SHA256=b713ea79a6fb131e27d65ec3f2227f36932540e71820288c3c5ad770b565ecd7 \
+    AWS_REGION=us-east-1 \
+    AWS_DEFAULT_REGION=us-east-1
 
 RUN export PACKER_ZIPFILE=packer_${PACKER_VERSION}_linux_amd64.zip \
     && export PACKER_URL=https://releases.hashicorp.com/packer/${PACKER_VERSION}/${PACKER_ZIPFILE} \
@@ -9,12 +11,10 @@ RUN export PACKER_ZIPFILE=packer_${PACKER_VERSION}_linux_amd64.zip \
     && echo "${PACKER_ZIPFILE_SHA256} ${PACKER_ZIPFILE}" | sha256sum --check \
     && unzip ${PACKER_ZIPFILE} \
     && install -o root -g root -m 0755 packer /usr/local/bin \
-    && rm ${PACKER_ZIPFILE} packer
+    && rm ${PACKER_ZIPFILE} packer \
+    && pip3 install awscli
 
 COPY . ./
 
-ENV AWS_REGION=us-east-1 \
-    AWS_DEFAULT_REGION=us-east-1
-
 RUN pip3 install awscli \
-    &&  make
+    && make

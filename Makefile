@@ -25,7 +25,7 @@ T_YELLOW := \e[0;33m
 T_RESET := \e[0m
 
 .PHONY: all
-all: 1.12
+all: 1.10 1.11 1.12
 
 .PHONY: validate
 validate:
@@ -51,7 +51,7 @@ k8s: validate
 		exit 1; \
 	fi
 	$(PACKER_BINARY) build \
-	    -debug \
+	    -debug
 		-var instance_type=$(INSTANCE_TYPE) \
 		-var kubernetes_version=$(VERSION) \
 		-var kubernetes_build_date=$(KUBERNETES_BUILD_DATE) \

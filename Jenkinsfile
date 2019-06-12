@@ -1,5 +1,7 @@
 #!groovy
 
 node {
-    sh "echo hello"
+    stage "All the world" {
+        sh "echo hello"
+    }
 }

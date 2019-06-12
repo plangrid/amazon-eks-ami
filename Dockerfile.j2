@@ -5,7 +5,7 @@ ENV PACKER_VERSION=1.4.1 \
 
 RUN export PACKER_ZIPFILE=packer_${PACKER_VERSION}_linux_amd64.zip \
     && export PACKER_URL=https://releases.hashicorp.com/packer/${PACKER_VERSION}/${PACKER_ZIPFILE} \
-    && wget ${PACKER_URL} \
-    && echo "${PACKER_ZIPFILE_SHA256} ${PACKER_ZIPEFILE}" | sha256sum --check \
+    && wget --quiet ${PACKER_URL} \
+    && echo "${PACKER_ZIPFILE_SHA256} ${PACKER_ZIPFILE}" | sha256sum --check \
     && unzip ${PACKER_ZIPFILE} \
     && install -o root -g root -m 0755 packer /usr/local/bin

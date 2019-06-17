@@ -19,4 +19,5 @@ RUN export PACKER_ZIPFILE=packer_${PACKER_VERSION}_linux_amd64.zip \
 COPY . ./
 
 RUN pip3 install awscli \
-    && make ${KUBERNETES_VERSION}
+    && make ${KUBERNETES_VERSION} \
+    && cat manifest.json

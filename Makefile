@@ -52,6 +52,7 @@ k8s: validate
 		echo "$(T_RED)Failed to find candidate AMI!$(T_RESET)"; \
 		exit 1; \
 	fi
+	$(PACKER_BINARY) -version ; \
 	$(PACKER_BINARY) build \
 	    -var aws_region=$(AWS_DEFAULT_REGION) \
 	    -var instance_type=$(INSTANCE_TYPE) \

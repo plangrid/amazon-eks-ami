@@ -72,7 +72,7 @@
           "cni_plugin_version": "{{ user `cni_plugin_version`}}"
       },
       "ami_name": "plangrid-eks-k8s-v{{user `kubernetes_version` | clean_resource_name}}-{{isotime | clean_resource_name}}",
-      "ami_description": "EKS Kubernetes Worker AMI with AmazonLinux2 image (k8s: {{ user `kubernetes_version`}}, docker:{{ user `docker_version`}})",
+      "ami_description": "EKS Kubernetes Worker AMI with AmazonLinux2 image (k8s: {{ user `kubernetes_version`}}, docker:{{ user `docker_version`}})"
     }
   ],
 

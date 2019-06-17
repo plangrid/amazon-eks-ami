@@ -65,6 +65,7 @@
           "creator": "{{user `creator`}}"
       },
       "tags": {
+          "Name": "plangrid-eks-k8s-v{{user `kubernetes_version` | clean_resource_name}}-{{isotime | clean_resource_name}}"
           "created": "{{timestamp}}",
           "docker_version": "{{ user `docker_version`}}",
           "source_ami_id": "{{ user `source_ami_id`}}",

@@ -54,6 +54,7 @@ k8s: validate
 	fi
 	$(PACKER_BINARY) -version ; \
 	$(PACKER_BINARY) build \
+	    -debug \
 	    -var aws_region=$(AWS_DEFAULT_REGION) \
 	    -var instance_type=$(INSTANCE_TYPE) \
 		-var kubernetes_version=$(VERSION) \

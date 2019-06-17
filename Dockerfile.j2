@@ -20,4 +20,7 @@ COPY . ./
 
 RUN pip3 install awscli \
     && make ${KUBERNETES_VERSION} \
-    && cat manifest.json
+    && export AMIS=$(jq -r .builds[0].artifact_id) \
+    && for AMI in $(echo $AMIS | s/,/\n/g) ; do \
+         echo $AMI ; \
+       done

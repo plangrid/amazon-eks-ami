@@ -19,8 +19,4 @@ RUN export PACKER_ZIPFILE=packer_${PACKER_VERSION}_linux_amd64.zip \
 COPY . ./
 
 RUN pip3 install awscli \
-    && make ${KUBERNETES_VERSION} \
-    && export AMIS=$(jq -r .builds[0].artifact_id) \
-    && for AMI in $(echo $AMIS | s/,/\n/g) ; do \
-         echo $AMI ; \
-       done
+    && make ${KUBERNETES_VERSION}

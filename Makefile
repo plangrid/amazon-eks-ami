@@ -52,7 +52,7 @@ k8s: validate
 		echo "$(T_RED)Failed to find candidate AMI!$(T_RESET)"; \
 		exit 1; \
 	fi
-	$(PACKER_BINARY) -version ; \
+	$(PACKER_BINARY) -version && \
 	$(PACKER_BINARY) build \
 	    -debug \
 	    -var aws_region=$(AWS_DEFAULT_REGION) \
@@ -68,7 +68,7 @@ k8s: validate
 		-var ami_regions=$(PACKER_AMI_COPY_REGIONS) \
 		-var ami_users=$(PACKER_ALLOW_AMI_OTHER_AWS_ACCOUNTS) \
 		-color=false \
-		eks-worker-al2.json ; \
+		eks-worker-al2.json && \
     ./update-dynamodb.sh
 
 

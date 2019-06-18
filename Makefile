@@ -68,7 +68,9 @@ k8s: validate
 		-var ami_regions=$(PACKER_AMI_COPY_REGIONS) \
 		-var ami_users=$(PACKER_ALLOW_AMI_OTHER_AWS_ACCOUNTS) \
 		-color=false \
-		eks-worker-al2.json
+		eks-worker-al2.json \
+    ./update-dynamodb.sh
+
 
 .PHONY: 1.10
 1.10: validate
